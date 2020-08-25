@@ -1,0 +1,9 @@
+.main-row {
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.left-position {
+    display: flex;
+    justify-content: flex-end;
+}
