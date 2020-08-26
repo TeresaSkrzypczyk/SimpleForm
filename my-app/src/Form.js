@@ -71,6 +71,8 @@ class Form extends Component {
 
                 <div className="row main-row">
                     <div className="col-3">
+                        <h1 className="title">Registration form</h1>
+
                         <div className="form-group">
                             <label>First name</label>
                             <input className="form-control" type="text" placeholder="" name="firstName" value={this.state.firstName} onChange={e => this.handleChange(e)} />
@@ -117,11 +119,17 @@ class Form extends Component {
             </form>
         );
 
-        const thanks = (<h3>Sent</h3>);
+        const thanks = (
+            <div className="row main-row">
+                <div className="col-3">
+                    <h1 className="title title-success">Thanks for your registration!</h1>
+                </div>
+            </div>
+        );
 
         return (
             <>
-                {this.state.send ? <>{thanks}{form}</>: form}
+                {this.state.send ? <>{thanks}</>: form}
             </>
         );
     }

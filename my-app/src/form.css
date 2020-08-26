@@ -7,3 +7,12 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.title-success {
+    color: #006200;
+}
