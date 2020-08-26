@@ -50,7 +50,7 @@ class Form extends Component {
             passwordError ='Password is required';
             errors.push(passwordError);
         }
-        if (this.state.password === this.state.repeatPassword) {
+        if (this.state.password !== this.state.repeatPassword) {
             repeatPasswordError ='Passwords are not the some';
             errors.push(repeatPasswordError);
         }
@@ -61,7 +61,7 @@ class Form extends Component {
 
         this.setState({userNameError, passwordError, repeatPasswordError, emailError});
         console.log(errors);
-        return false;
+        return errors.length === 0;
     }
 
     render() {
@@ -93,7 +93,7 @@ class Form extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label>Repeat password</label>
+                            <label>Confirm password</label>
                             <input className="form-control" type="password" name="repeatPassword" value={this.state.repeatPassword} onChange={e => this.handleChange(e)} />
                             <small className="form-text text-muted">
                                 {this.state.repeatPasswordError}
