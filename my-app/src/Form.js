@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from 'axios';
 
 class Form extends Component {
     constructor(props) {
@@ -24,8 +25,8 @@ class Form extends Component {
         });
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
+    handleSubmit = async event =>  {
+        event.preventDefault();
 
         const data=this.state;
         console.log(data);
@@ -33,6 +34,19 @@ class Form extends Component {
         if (this.validate()) {
             this.setState({send: true})
         }
+
+       await axios({
+            method: 'post',
+            url: '/data',
+            data: data,
+            config: { headers: {'Content-Type': 'application/json' }}
+            })
+            .then (function (response) {
+                console.log(response);
+            })
+            .catch (function (error) {
+                console.log(error.response);
+            });
     }
 
     validate() {
