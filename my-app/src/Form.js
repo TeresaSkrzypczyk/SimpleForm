@@ -81,7 +81,7 @@ class Form extends Component {
     render() {
 
         const form = (
-            <form onSubmit={e => this.handleSubmit(e)}>
+            <form onSubmit={e => this.handleSubmit(e)} className="form">
 
                 <div className="row main-row">
                     <div className="col-3">
